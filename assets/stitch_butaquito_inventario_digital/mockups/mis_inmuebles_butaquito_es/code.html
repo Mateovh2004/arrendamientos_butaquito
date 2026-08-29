@@ -1,0 +1,248 @@
+<!DOCTYPE html><html class="h-full" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Arrendamientos Butaquito - Mis Inmuebles</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts: Inter and JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config defined by the system -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f3f4f5",
+                        "surface-container": "#edeeef",
+                        "primary-fixed": "#b6ebfe",
+                        "on-surface-variant": "#40484b",
+                        "on-primary-fixed": "#001f28",
+                        "on-secondary-fixed-variant": "#7a3000",
+                        "outline-variant": "#c0c8cb",
+                        "tertiary-fixed": "#e0e5cc",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#434836",
+                        "primary-fixed-dim": "#9acee1",
+                        "on-tertiary-fixed-variant": "#444937",
+                        "surface-variant": "#e1e3e4",
+                        "surface-container-high": "#e7e8e9",
+                        "secondary": "#a04100",
+                        "on-primary-fixed-variant": "#114d5d",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#87bbce",
+                        "surface-container-highest": "#e1e3e4",
+                        "inverse-surface": "#2e3132",
+                        "primary-container": "#0f4c5c",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d9dadb",
+                        "tertiary": "#2d3221",
+                        "inverse-on-surface": "#f0f1f2",
+                        "background": "#f8f9fa",
+                        "secondary-fixed": "#ffdbcc",
+                        "inverse-primary": "#9acee1",
+                        "secondary-container": "#fd7729",
+                        "surface-bright": "#f8f9fa",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#b2b69f",
+                        "outline": "#70787c",
+                        "secondary-fixed-dim": "#ffb693",
+                        "on-tertiary-fixed": "#191d0e",
+                        "on-surface": "#191c1d",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#351000",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#5e2300",
+                        "tertiary-fixed-dim": "#c4c9b1",
+                        "surface": "#f8f9fa",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "primary": "#003441",
+                        "surface-tint": "#306576",
+                        "on-background": "#191c1d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "4px",
+                        "gutter": "16px",
+                        "margin-mobile": "16px",
+                        "stack-lg": "24px",
+                        "margin-desktop": "32px",
+                        "base": "8px",
+                        "stack-md": "12px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "button-text": ["Inter"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "button-text": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface h-full flex flex-col pt-16 pb-[72px] md:pb-0 font-body-lg text-body-lg">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 h-16 bg-surface dark:bg-inverse-surface bg-surface-container-low dark:bg-surface-container shadow-sm">
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-variant dark:hover:bg-on-surface-variant transition-colors active:scale-95 duration-150 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="flex items-center gap-2">
+<img alt="Arrendamientos Butaquito Logo" class="h-8 w-8 object-contain rounded-md" src="https://lh3.googleusercontent.com/aida/AEtjO1UXVAavGqtTUyensw94dtS_Aa8DFKRI3SI0TpJRkNAYkHKhucdadkEbTgogxPjcYmJYVjJ0jmN3VdyhWZl6rnUhGk2DAqdYihtAgbvhxQJBCxjmKztIeV3HJFkL_j6WFRAZ2kw3W1gL519bCOoNoxob88E8FIWTBlIcAh3YQnoSlGk8Ip13db-HhwyVdXvRw2SIgcrYkUPD4U0BrZapunDM0LvpsEdwEsZHKyj27Z27ZZxIL8C-69fszVM">
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary hidden sm:block">Arrendamientos Butaquito</h1>
+</div>
+</div>
+<!-- Desktop Navigation Integration (from BottomNavBar JSON for md:flex) -->
+<nav class="hidden md:flex gap-2">
+<a class="flex flex-row items-center gap-2 bg-primary-container text-on-primary-container rounded-full px-5 py-2 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="home_work">home_work</span>
+<span class="font-label-caps text-label-caps">Inmuebles</span>
+</a>
+<a class="flex flex-row items-center gap-2 text-on-surface-variant px-5 py-2 hover:bg-surface-container-high transition-all rounded-full active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="fact_check">fact_check</span>
+<span class="font-label-caps text-label-caps">Inspecciones</span>
+</a>
+<a class="flex flex-row items-center gap-2 text-on-surface-variant px-5 py-2 hover:bg-surface-container-high transition-all rounded-full active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="sync">sync</span>
+<span class="font-label-caps text-label-caps">Sincronizar</span>
+</a>
+</nav>
+<div class="flex items-center">
+<button aria-label="User profile picture" class="h-10 w-10 rounded-full bg-surface-variant flex items-center justify-center overflow-hidden hover:bg-surface-container-high transition-colors active:scale-95 duration-150 border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="person">person</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg flex flex-col gap-stack-lg relative overflow-y-auto">
+<header class="flex flex-col gap-stack-sm md:flex-row md:items-end justify-between w-full">
+<div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface">Mis Inmuebles</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Gestiona el inventario asignado y las inspecciones.</p>
+</div>
+<div class="flex gap-3 mt-4 md:mt-0 w-full md:w-auto">
+<div class="relative w-full md:w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-sm text-body-sm text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all" placeholder="Buscar por código..." type="text">
+</div>
+<button class="px-4 py-2 border border-outline-variant rounded-lg bg-surface-container-lowest text-on-surface font-button-text text-button-text hover:bg-surface-container-low transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
+</button>
+</div>
+</header>
+<!-- Bento Grid Layout for Properties -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter auto-rows-max">
+<!-- Property Card 1 -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden shadow-[0_4px_12px_rgba(15,76,92,0.05)] hover:shadow-[0_8px_24px_rgba(15,76,92,0.08)] transition-shadow duration-200 flex flex-col group cursor-pointer relative">
+<div class="relative h-48 w-full bg-surface-variant">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A modern, high-quality photograph of the exterior of an apartment building in a sunny urban setting. The architecture is clean and contemporary with large windows. The lighting is bright natural daylight, creating a professional, secure, and inviting real estate aesthetic consistent with corporate minimalism. Primary colors are subtle with clear skies." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYcSJPWtPxI9sJ6VMemfv4QEx6Ogjbum65eO-Ua9_8tzyKG61_y-jr0HPHhLkJ5wvy7spLgaWyTuaF6EM-vMmwwrU3i2fl9gkkjlWepGIuYhkkG9dJVWDv5mLCbFWw_DQGAFvEVuJVGzEAfmAaUJSL4DjAwXmMxpGUxP_L-f2XHLuWUHZ0ESgBTt5ZxtjRYEEL368nxVG2cQDeOipnJ3QD5GWD662qMqxxt5porx-OeH-i5e7T4rGO">
+<div class="absolute top-3 right-3 bg-tertiary-fixed text-on-tertiary-fixed-variant px-2 py-1 rounded font-label-caps text-label-caps flex items-center gap-1 shadow-sm backdrop-blur-sm bg-opacity-90">
+<span class="material-symbols-outlined text-[14px]" data-icon="hourglass_top">hourglass_top</span>
+                        Pendiente
+                    </div>
+</div>
+<div class="p-4 flex flex-col gap-stack-sm flex-grow">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-outline-variant text-[18px]" data-icon="apartment">apartment</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Apartamento</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface line-clamp-1">Av. Poblado #12-34</h3>
+<p class="font-body-sm text-body-sm text-outline flex items-center gap-1 mt-auto pt-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="calendar_today">calendar_today</span>
+                        Programado: 24 Oct, 2023
+                    </p>
+</div>
+</article>
+<!-- Property Card 2 -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden shadow-[0_4px_12px_rgba(15,76,92,0.05)] hover:shadow-[0_8px_24px_rgba(15,76,92,0.08)] transition-shadow duration-200 flex flex-col group cursor-pointer relative">
+<div class="relative h-48 w-full bg-surface-variant">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A professional architectural photograph of a well-maintained modern townhouse exterior during early morning. The setting is a quiet residential neighborhood. The lighting is soft and natural, emphasizing clean lines and sturdy construction. The mood is reliable and welcoming, fitting a professional property management portfolio in a minimalist style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCCrAsJ5zDQyl-seUbt6mk2BRDUIcao27TF0TikpeMlI7s97uAGq_TpzzBY_C3wtsMaV1jTfFISfH_sKsHMrxdP72Aa5o2MD9MWPGhG99Z-_pSt00s2ESk-FF3d29TTR8E4BOjqdpil4xqffu-3G6SjPUnuLt95MP30zD81sEu5_InywM0qgLP1NfFwZLCsmhcURLbGrzcX9Ju2CFbw2EnuOUyV5v1xsYJFfaWz8K2uWcE-o4ScgXN">
+<div class="absolute top-3 right-3 bg-secondary-fixed text-on-secondary-fixed-variant px-2 py-1 rounded font-label-caps text-label-caps flex items-center gap-1 shadow-sm backdrop-blur-sm bg-opacity-90">
+<span class="material-symbols-outlined text-[14px]" data-icon="directions_run">directions_run</span>
+                        En Progreso
+                    </div>
+</div>
+<div class="p-4 flex flex-col gap-stack-sm flex-grow">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-outline-variant text-[18px]" data-icon="house">house</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Casa</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface line-clamp-1">Calle 10A #35-18</h3>
+<div class="w-full bg-surface-variant rounded-full h-1.5 mt-2 overflow-hidden">
+<div class="bg-secondary-container h-1.5 rounded-full" style="width: 45%"></div>
+</div>
+<p class="font-body-sm text-body-sm text-outline flex items-center justify-between mt-auto pt-2">
+<span class="">Espacios inspeccionados</span>
+<span class="font-bold text-on-surface">3 / 8</span>
+</p>
+</div>
+</article>
+<!-- Property Card 3 -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden shadow-[0_4px_12px_rgba(15,76,92,0.05)] hover:shadow-[0_8px_24px_rgba(15,76,92,0.08)] transition-shadow duration-200 flex flex-col group cursor-pointer relative md:col-span-2 lg:col-span-1">
+<div class="relative h-48 w-full bg-surface-variant">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="An interior shot of a bright, spacious, and empty modern apartment living room ready for inspection. Large windows let in abundant natural light, highlighting pristine white walls and polished floors. The aesthetic is clean, minimal, and highly organized, reflecting a meticulous property management process. Colors are neutral with daylight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9rVgIsAjiDdZdwnLeGYeyO6MyXI_8VHSA25CtwqbCm76_4N6UQqHeaGq_eXi48O6v2gtB7eyhlxK36E7x6KFomHmTkYJ83KL2zHcpq0aUWuRtBgJ0FMyO6PqvOPJXHwapH-rc8sr7hYSRbkaXz21F4EjYeI2nmh102EnmXQnQQ9Klpll5Jg-EhHCOtI26hg8pK9LNt0werTdig-OpMdFeHk5RDEyLLVPwYbV_xe2v7u3Gx0B5kl5r">
+<div class="absolute top-3 right-3 bg-tertiary-fixed text-on-tertiary-fixed-variant px-2 py-1 rounded font-label-caps text-label-caps flex items-center gap-1 shadow-sm backdrop-blur-sm bg-opacity-90">
+<span class="material-symbols-outlined text-[14px]" data-icon="hourglass_top">hourglass_top</span>
+                        Pendiente
+                    </div>
+</div>
+<div class="p-4 flex flex-col gap-stack-sm flex-grow">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-outline-variant text-[18px]" data-icon="apartment">apartment</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Apartamento</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface line-clamp-1">Edificio Torres del Río, Apt 802</h3>
+<p class="font-body-sm text-body-sm text-outline flex items-center gap-1 mt-auto pt-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="calendar_today">calendar_today</span>
+                        Programado: 25 Oct, 2023
+                    </p>
+</div>
+</article>
+</div>
+</main>
+<!-- Start New FAB (Contextually visible on Dashboard) -->
+<button aria-label="Start New Inspection" class="fixed right-margin-mobile bottom-24 md:right-margin-desktop md:bottom-10 z-40 bg-[#E36414] text-white h-14 w-14 rounded-full shadow-[0_8px_24px_rgba(0,0,0,0.12)] flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-200 group">
+<span class="material-symbols-outlined text-[28px] group-hover:rotate-90 transition-transform duration-300" data-icon="add">add</span>
+</button>
+<!-- BottomNavBar (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface dark:bg-inverse-surface border-t border-outline-variant flat no shadows">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-5 py-1 hover:bg-surface-container-high transition-all active:scale-90 duration-200 w-24" href="#">
+<span class="material-symbols-outlined" data-icon="home_work">home_work</span>
+<span class="font-label-caps text-label-caps mt-1">Inmuebles</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-5 py-1 hover:bg-surface-container-high transition-all active:scale-90 duration-200 w-24" href="#">
+<span class="material-symbols-outlined" data-icon="fact_check">fact_check</span>
+<span class="font-label-caps text-label-caps mt-1">Inspecciones</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-5 py-1 hover:bg-surface-container-high transition-all active:scale-90 duration-200 w-24" href="#">
+<span class="material-symbols-outlined" data-icon="sync">sync</span>
+<span class="font-label-caps text-label-caps mt-1">Sincronizar</span>
+</a>
+</nav>
+
+
+</body></html>
