@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Enviar Inventario - Arrendamientos Butaquito</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-background": "#191c1d",
+                      "inverse-surface": "#2e3132",
+                      "on-primary-fixed-variant": "#114d5d",
+                      "on-tertiary-fixed-variant": "#444937",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-bright": "#f8f9fa",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-fixed": "#001f28",
+                      "primary": "#003441",
+                      "surface-container": "#edeeef",
+                      "surface": "#f8f9fa",
+                      "outline": "#70787c",
+                      "error": "#ba1a1a",
+                      "on-surface": "#191c1d",
+                      "inverse-primary": "#9acee1",
+                      "surface-variant": "#e1e3e4",
+                      "surface-container-low": "#f3f4f5",
+                      "on-primary": "#ffffff",
+                      "on-surface-variant": "#40484b",
+                      "tertiary-fixed-dim": "#c4c9b1",
+                      "background": "#f8f9fa",
+                      "secondary-fixed-dim": "#ffb693",
+                      "error-container": "#ffdad6",
+                      "surface-dim": "#d9dadb",
+                      "tertiary-fixed": "#e0e5cc",
+                      "primary-fixed-dim": "#9acee1",
+                      "secondary-fixed": "#ffdbcc",
+                      "primary-fixed": "#b6ebfe",
+                      "secondary-container": "#fd7729",
+                      "primary-container": "#0f4c5c",
+                      "tertiary": "#2d3221",
+                      "secondary": "#a04100",
+                      "on-tertiary-container": "#b2b69f",
+                      "on-error": "#ffffff",
+                      "on-primary-container": "#87bbce",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed": "#191d0e",
+                      "on-secondary-fixed-variant": "#7a3000",
+                      "on-secondary": "#ffffff",
+                      "tertiary-container": "#434836",
+                      "outline-variant": "#c0c8cb",
+                      "inverse-on-surface": "#f0f1f2",
+                      "surface-container-high": "#e7e8e9",
+                      "on-secondary-fixed": "#351000",
+                      "on-secondary-container": "#5e2300",
+                      "surface-container-highest": "#e1e3e4",
+                      "surface-tint": "#306576"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "base": "8px",
+                      "stack-lg": "24px",
+                      "margin-desktop": "32px",
+                      "margin-mobile": "16px",
+                      "stack-sm": "4px",
+                      "stack-md": "12px"
+              },
+              "fontFamily": {
+                      "label-caps": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "button-text": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "button-text": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-lg antialiased">
+<!-- Header (Transactional Intent: Back action, no nav shell) -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface flex justify-between items-center px-4 h-16 shadow-sm border-b border-surface-container">
+<button class="text-primary p-2 rounded-full hover:bg-surface-variant transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-on-surface flex-grow text-center mr-10">Enviar Inventario</h1>
+<!-- Invisible spacer for flex balance -->
+<div class="w-10"></div>
+</header>
+<main class="pt-20 pb-24 px-margin-mobile md:px-margin-desktop max-w-3xl mx-auto space-y-stack-lg">
+<!-- Inventory Summary Card -->
+<section class="bg-surface-container-lowest rounded-lg border border-outline-variant shadow-sm overflow-hidden flex flex-col sm:flex-row">
+<div class="w-full sm:w-1/3 h-48 sm:h-auto bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="A brightly lit, modern corporate apartment exterior during the day. The building features clean architectural lines, large glass windows, and subtle teal accents reflecting a reliable and meticulous property management brand. The image is a clear, high-quality photograph suitable for a real estate inventory application thumbnail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQ2NFR3zG59BJ7b8TDod5ZHKry7ZadjM4OcuuizpdGX02VUF6jVwvwYY5rK1-KCc1VgqAXGuemp148FHEpg3IpzJop1ihr5-TeZMz7AFXoYsUdYQ0IArjH74WcT05rbc1e23clkOjK8vyt_bjvkwUc3Fj2N_FVJ9TE0h5q-_GApDJQP5jcZGV8tYVYk9EcQKjOInqBHqUWLbBT-B0MxwLFUwmv40fCEY9kPS7SUEscoKgUNOIwlmMH"/>
+</div>
+<div class="p-gutter flex flex-col justify-center flex-grow space-y-stack-sm">
+<div class="flex justify-between items-start">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">ID: INV-2023-0842</span>
+<span class="bg-[#e0e5cc] text-[#191d0e] font-label-caps text-label-caps px-2 py-1 rounded-full uppercase">Listo</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Calle 45 # 12-89, Apto 402</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">domain</span>
+                    Edificio Los Robles, Norte
+                </p>
+<div class="mt-stack-sm flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="font-body-sm text-body-sm font-semibold">Validación RN-08 Completada</span>
+</div>
+</div>
+</section>
+<!-- Email Form Section -->
+<section class="space-y-stack-md bg-surface-container-lowest p-gutter rounded-lg border border-outline-variant shadow-sm">
+<div class="space-y-stack-sm">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase block">Destinatario</label>
+<div class="grid grid-cols-3 gap-2">
+<button class="border border-primary-container bg-primary-container text-on-primary-container rounded-lg py-2 font-button-text text-button-text text-center transition-colors">Inquilino</button>
+<button class="border border-outline-variant bg-surface text-on-surface rounded-lg py-2 font-button-text text-button-text text-center hover:bg-surface-variant transition-colors">Propietario</button>
+<button class="border border-outline-variant bg-surface text-on-surface rounded-lg py-2 font-button-text text-button-text text-center hover:bg-surface-variant transition-colors">Asesor</button>
+</div>
+</div>
+<div class="space-y-stack-sm mt-stack-md">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase block" for="email_input">Correo Electrónico</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-3 py-2 font-body-lg text-body-lg text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-transparent transition-all" id="email_input" type="email" value="carlos.ramirez@ejemplo.com"/>
+</div>
+<div class="space-y-stack-sm mt-stack-md">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase block" for="message_input">Mensaje (Opcional)</label>
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-3 py-2 font-body-lg text-body-lg text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-transparent transition-all resize-none" id="message_input" placeholder="Escribe un mensaje adicional para adjuntar con el inventario..." rows="4"></textarea>
+</div>
+</section>
+<!-- Action Area -->
+<div class="pt-stack-lg pb-stack-lg flex flex-col gap-4">
+<button class="w-full bg-[#E36414] hover:bg-[#c95912] text-white rounded-lg py-4 flex items-center justify-center gap-2 font-button-text text-button-text shadow-sm transition-transform active:scale-[0.98]">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+                Enviar por Correo
+            </button>
+<button class="w-full bg-transparent border-none text-primary-container font-button-text text-button-text py-2 hover:bg-surface-variant rounded-lg transition-colors">
+                Cancelar
+            </button>
+</div>
+</main>
+<script>
+        // Simple script to handle recipient toggle visually
+        document.querySelectorAll('.grid-cols-3 button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Reset all
+                document.querySelectorAll('.grid-cols-3 button').forEach(b => {
+                    b.className = 'border border-outline-variant bg-surface text-on-surface rounded-lg py-2 font-button-text text-button-text text-center hover:bg-surface-variant transition-colors';
+                });
+                // Set active
+                this.className = 'border border-primary-container bg-primary-container text-on-primary-container rounded-lg py-2 font-button-text text-button-text text-center transition-colors';
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Detalles de Inspección - Arrendamientos Butaquito</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f3f4f5",
+                        "surface-container": "#edeeef",
+                        "primary-fixed": "#b6ebfe",
+                        "on-surface-variant": "#40484b",
+                        "on-primary-fixed": "#001f28",
+                        "on-secondary-fixed-variant": "#7a3000",
+                        "outline-variant": "#c0c8cb",
+                        "tertiary-fixed": "#e0e5cc",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#434836",
+                        "primary-fixed-dim": "#9acee1",
+                        "on-tertiary-fixed-variant": "#444937",
+                        "surface-variant": "#e1e3e4",
+                        "surface-container-high": "#e7e8e9",
+                        "secondary": "#a04100",
+                        "on-primary-fixed-variant": "#114d5d",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#87bbce",
+                        "surface-container-highest": "#e1e3e4",
+                        "inverse-surface": "#2e3132",
+                        "primary-container": "#0f4c5c",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d9dadb",
+                        "tertiary": "#2d3221",
+                        "inverse-on-surface": "#f0f1f2",
+                        "background": "#f8f9fa",
+                        "secondary-fixed": "#ffdbcc",
+                        "inverse-primary": "#9acee1",
+                        "secondary-container": "#fd7729",
+                        "surface-bright": "#f8f9fa",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#b2b69f",
+                        "outline": "#70787c",
+                        "secondary-fixed-dim": "#ffb693",
+                        "on-tertiary-fixed": "#191d0e",
+                        "on-surface": "#191c1d",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#351000",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#5e2300",
+                        "tertiary-fixed-dim": "#c4c9b1",
+                        "surface": "#f8f9fa",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "primary": "#003441",
+                        "surface-tint": "#306576",
+                        "on-background": "#191c1d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "4px",
+                        "gutter": "16px",
+                        "margin-mobile": "16px",
+                        "stack-lg": "24px",
+                        "margin-desktop": "32px",
+                        "base": "8px",
+                        "stack-md": "12px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "button-text": ["Inter"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "button-text": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #f8f9fa; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 1; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-sm pb-[88px] md:pb-0 pt-[64px]">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 h-16 bg-surface dark:bg-inverse-surface shadow-sm text-primary dark:text-inverse-primary bg-surface-container-low dark:bg-surface-container">
+<button class="p-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant transition-colors rounded-full flex items-center justify-center active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary">Arrendamientos Butaquito</h1>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-variant hover:bg-surface-variant dark:hover:bg-on-surface-variant transition-colors active:scale-95 duration-150 cursor-pointer flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="person">person</span>
+</div>
+</header>
+<main class="container mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg max-w-4xl">
+<!-- Breadcrumb / Header -->
+<div class="mb-stack-lg flex items-center gap-2">
+<button class="text-primary flex items-center gap-1 font-button-text text-button-text bg-transparent hover:bg-surface-variant px-3 py-2 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                Atrás
+            </button>
+<div class="text-on-surface-variant mx-2">/</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary">Sala Principal</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Main Content Area (Items to Inspect) -->
+<div class="md:col-span-8 flex flex-col gap-stack-md">
+<!-- Inspection Item: Walls -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant p-gutter shadow-[0px_4px_12px_rgba(15,76,92,0.05)]">
+<div class="flex justify-between items-start mb-stack-sm">
+<h3 class="font-headline-md text-headline-md text-on-surface">Paredes</h3>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant px-2 py-1 rounded-full font-label-caps text-label-caps">Inspeccionado</span>
+</div>
+<!-- Condition Toggles -->
+<div class="mt-stack-sm">
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-2">Estado</label>
+<div class="flex rounded-lg overflow-hidden border border-outline-variant">
+<button class="flex-1 py-2 font-button-text text-button-text bg-surface-container text-on-surface hover:bg-surface-variant transition-colors border-r border-outline-variant">Bueno</button>
+<button class="flex-1 py-2 font-button-text text-button-text bg-primary-container text-on-primary-container hover:bg-primary-fixed transition-colors border-r border-outline-variant">Regular</button>
+<button class="flex-1 py-2 font-button-text text-button-text bg-surface-container text-on-surface hover:bg-surface-variant transition-colors">Malo</button>
+</div>
+</div>
+<!-- Photos Section -->
+<div class="mt-stack-md">
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-2">Fotos de Evidencia</label>
+<div class="flex gap-2 overflow-x-auto pb-2">
+<div class="w-24 h-24 rounded-lg bg-surface-container flex-shrink-0 relative overflow-hidden group border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A close-up photograph showing a minor scuff mark on an interior white painted wall, illuminated by soft natural light filtering through a window, conveying a sense of detailed inspection in a modern apartment setting, realistic and professional real estate photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRS2nZxv0MpdKJ870nCZnDleU7H-EOLfoILHUULICiL5Wz_n2oOofWkAHESeu8JujO3jOqjGDho_wljwjJSCa2bCcqmqdYP4FZqpFe3aL3ZRPktb3mrUZS4BRkcWPgLV5Pe4ieKs5xBuRo0DxgFxlI3ow1l3Ac5J82Mul2lzjaMQWdHIwwCxE2nv1TgPjCaGlNeF_ndK-7L_HbWVMtFLeRvDCUfcx8DyJjemOiXRS_LqcwAnisxIya"/>
+<button class="absolute top-1 right-1 bg-inverse-surface/70 text-on-secondary rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<button class="w-24 h-24 rounded-lg bg-surface-variant text-on-surface-variant flex flex-col items-center justify-center flex-shrink-0 border border-dashed border-outline hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined mb-1">add_a_photo</span>
+<span class="font-label-caps text-label-caps text-[10px]">Añadir Foto</span>
+</button>
+</div>
+</div>
+<div class="mt-stack-md flex justify-end gap-2">
+<button class="px-4 py-2 rounded-lg border border-primary-container text-primary-container font-button-text text-button-text hover:bg-surface-container transition-colors">Añadir Novedad</button>
+</div>
+</div>
+<!-- Inspection Item: Floor -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant p-gutter shadow-[0px_4px_12px_rgba(15,76,92,0.05)]">
+<div class="flex justify-between items-start mb-stack-sm">
+<h3 class="font-headline-md text-headline-md text-on-surface">Piso</h3>
+<span class="bg-surface-variant text-on-surface-variant px-2 py-1 rounded-full font-label-caps text-label-caps">Pendiente</span>
+</div>
+<!-- Condition Toggles -->
+<div class="mt-stack-sm">
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-2">Estado</label>
+<div class="flex rounded-lg overflow-hidden border border-outline-variant">
+<button class="flex-1 py-2 font-button-text text-button-text bg-surface-container text-on-surface hover:bg-surface-variant transition-colors border-r border-outline-variant">Bueno</button>
+<button class="flex-1 py-2 font-button-text text-button-text bg-surface-container text-on-surface hover:bg-surface-variant transition-colors border-r border-outline-variant">Regular</button>
+<button class="flex-1 py-2 font-button-text text-button-text bg-surface-container text-on-surface hover:bg-surface-variant transition-colors">Malo</button>
+</div>
+</div>
+<!-- Photos Section -->
+<div class="mt-stack-md">
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-2">Fotos de Evidencia</label>
+<div class="flex gap-2 overflow-x-auto pb-2">
+<button class="w-24 h-24 rounded-lg bg-surface-variant text-on-surface-variant flex flex-col items-center justify-center flex-shrink-0 border border-dashed border-outline hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined mb-1">add_a_photo</span>
+<span class="font-label-caps text-label-caps text-[10px]">Añadir Foto</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar Info Panel (Hidden on small mobile, visible on tablet+) -->
+<div class="hidden md:block md:col-span-4">
+<div class="bg-surface-container-low rounded-lg p-gutter sticky top-20 border border-outline-variant">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-stack-md">Resumen del Espacio</h4>
+<div class="space-y-4">
+<div>
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-1">Propiedad</label>
+<p class="font-body-lg text-body-lg text-on-surface">Apt 304, Edificio Girasoles</p>
+</div>
+<div>
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-1">Tipo de Inspección</label>
+<span class="bg-primary-container text-on-primary-container px-2 py-1 rounded-full font-label-caps text-label-caps inline-block">Ingreso</span>
+</div>
+<div>
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-1">Progreso</label>
+<div class="w-full bg-surface-variant rounded-full h-2 mt-1 overflow-hidden">
+<div class="bg-[#E36414] h-2 rounded-full" style="width: 33%"></div>
+</div>
+<p class="font-label-caps text-label-caps text-right mt-1 text-on-surface-variant">1/3 Ítems</p>
+</div>
+</div>
+<div class="mt-stack-lg pt-stack-sm border-t border-outline-variant">
+<button class="w-full bg-[#E36414] text-white font-button-text text-button-text py-3 rounded-lg hover:bg-secondary-container transition-colors shadow-sm">Guardar y Continuar</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Camera Trigger for the specific room) -->
+<button class="fixed bottom-[100px] right-6 md:bottom-8 md:right-8 bg-primary-container text-on-primary-container w-14 h-14 rounded-full flex items-center justify-center shadow-[0px_8px_24px_rgba(0,0,0,0.12)] hover:bg-primary transition-colors z-40 active:scale-95 duration-200">
+<span class="material-symbols-outlined text-[28px]">camera_alt</span>
+</button>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface dark:bg-inverse-surface border-t border-outline-variant">
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-5 py-1 hover:bg-surface-container-high transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="home_work">home_work</span>
+<span class="font-label-caps text-label-caps mt-1 text-[10px]">Inmuebles</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-5 py-1 hover:bg-surface-container-high transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="fact_check">fact_check</span>
+<span class="font-label-caps text-label-caps mt-1 text-[10px]">Inspecciones</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-5 py-1 hover:bg-surface-container-high transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="sync">sync</span>
+<span class="font-label-caps text-label-caps mt-1 text-[10px]">Sincronizar</span>
+</button>
+</nav>
+</body></html>
