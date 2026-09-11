@@ -47,7 +47,7 @@ class widgetMenuInicio extends StatelessWidget{
               ),
             ),
             TextField(
-             controller: controladorContrasena,
+            controller: controladorContrasena,
             decoration: const InputDecoration(
             labelText: 'Contraseña',
             hintText: 'Ingresa tu contraseña',
@@ -62,13 +62,12 @@ class widgetMenuInicio extends StatelessWidget{
             child: const Text("¿Olvidaste tu contraseña?"),
               ),
             ) ,
-         
           ],
           
         ),
         
       ),
-       ElevatedButton(
+      ElevatedButton(
           onPressed: () {
             print('Ingresar');
           },
