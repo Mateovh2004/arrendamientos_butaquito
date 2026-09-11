@@ -1,3 +1,4 @@
+import 'package:arrendamientos_butaquito/layout/lista_inmuebles.dart';
 import 'package:flutter/material.dart';
 import 'package:arrendamientos_butaquito/layout/menu_inicio.dart';
 void main() {
@@ -19,7 +20,8 @@ class MainApp extends StatelessWidget {
             IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
           ],
         ),
-        body:widgetMenuInicio(controladorCorreo: controladorCorreo, controladorContrasena: controladorContrasena), // Cierre de AppBar
+        body: listadoInmuebles(),
+        //body:widgetMenuInicio(controladorCorreo: controladorCorreo, controladorContrasena: controladorContrasena), // Cierre de AppBar
       ), // Cierre de Scaffold
     ); // Cierre de MaterialApp
   }
