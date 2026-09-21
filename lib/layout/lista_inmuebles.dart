@@ -18,7 +18,8 @@ class Inmueble{
 
 class listadoInmuebles extends StatelessWidget {
   const listadoInmuebles({super.key});
-    static const List<Inmueble> inmuebles = [
+
+  static const List<Inmueble> inmuebles = [
     Inmueble(
       nombre: 'Apartamento Laureles 502',
       direccion: 'Cra 76 # 34-12, Laureles',
@@ -52,9 +53,11 @@ class listadoInmuebles extends StatelessWidget {
         return Colors.grey;
     }
   }
+
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return Scaffold(
+    body: ListView.builder(
       itemCount: inmuebles.length,
       itemBuilder: (context, indice) {
         final inmueble = inmuebles[indice];
@@ -78,6 +81,7 @@ class listadoInmuebles extends StatelessWidget {
           },
         );
       },
+    )
     );
   }
 }
