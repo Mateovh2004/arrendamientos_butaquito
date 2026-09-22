@@ -35,7 +35,7 @@ class _ListaInventariosState extends State<ListaInventarios> {
       ),
       body: Column(
         children: [
-         
+        
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
@@ -62,7 +62,7 @@ class _ListaInventariosState extends State<ListaInventarios> {
             ),
           ),
 
-       
+      
           Expanded(
             child: ListView.builder(
               padding: const EdgeInsets.symmetric(horizontal: 16),
