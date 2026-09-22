@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'nuevo_inmueble.dart';
+import 'lista_inventarios.dart';
 
 class widgetMenuInicio extends StatelessWidget{
   const widgetMenuInicio({super.key, required this.controladorCorreo, required this.controladorContrasena});
@@ -69,7 +71,12 @@ class widgetMenuInicio extends StatelessWidget{
       ),
       ElevatedButton(
           onPressed: () {
-            print('Ingresar');
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ListaInventarios(),
+              ),
+            );
           },
           style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(255, 2, 0, 95)),
           child: const Text('Ingresar'),
