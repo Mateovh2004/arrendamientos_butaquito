@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart' ;
-import 'package:arrendamientos_butaquito/layout/lista_inmuebles.dart';
+import 'package:arrendamientos_butaquito/layout/detalle_inmueble.dart';
 class CrearInventario extends StatefulWidget {
   const CrearInventario({super.key});
 
@@ -209,7 +209,7 @@ class _CrearInventarioState extends State<CrearInventario> {
         Navigator.push(
         context,
         MaterialPageRoute(
-        builder: (context) => const listadoInmuebles(),
+        builder: (context) => const DetalleInmueble(codigo: ''),
         ),
         );
         },

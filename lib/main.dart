@@ -1,8 +1,9 @@
-import 'package:arrendamientos_butaquito/layout/lista_inmuebles.dart';
+import 'package:arrendamientos_butaquito/layout/detalle_inmueble.dart';
 import 'package:arrendamientos_butaquito/layout/crear_-inventario.dart';
 import 'package:arrendamientos_butaquito/layout/nuevo_inmueble.dart'; 
 import 'package:flutter/material.dart';
 import 'package:arrendamientos_butaquito/layout/menu_inicio.dart';
+import 'package:arrendamientos_butaquito/layout/lista_inventarios.dart';
 
 void main() {
   runApp(MainApp());
@@ -29,13 +30,10 @@ class PantallaPrincipal extends StatelessWidget {
     final TextEditingController controladorContrasena = TextEditingController();
 
     return Scaffold(
-      body: 
-
-      widgetMenuInicio(
+      body: widgetMenuInicio(
         controladorCorreo: controladorCorreo,
         controladorContrasena: controladorContrasena
-     ),
-      
+      )
     );
   }
 }

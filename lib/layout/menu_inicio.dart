@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'nuevo_inmueble.dart';
+import 'lista_inventarios.dart';
 
 class widgetMenuInicio extends StatelessWidget{
   const widgetMenuInicio({super.key, required this.controladorCorreo, required this.controladorContrasena});
@@ -73,7 +74,7 @@ class widgetMenuInicio extends StatelessWidget{
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const PantallaNuevoInmueble(),
+                builder: (context) => const ListaInventarios(),
               ),
             );
           },
