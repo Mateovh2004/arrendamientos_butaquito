@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| Integrantes | Integrante 1, Integrante 2, Integrante 3 |
+| Integrantes | Juan José López Echeverri, Mateo Vasquez Hoyos, Juan David Martínez |
 | Curso y grupo | Programación Móvil (IF2004), grupo 601 |
 | Fecha | Por definir |
 | Versión | 1.0 |

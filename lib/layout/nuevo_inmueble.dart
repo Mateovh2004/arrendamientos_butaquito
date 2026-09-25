@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'crear_-inventario.dart';
+import 'crear_inventario.dart';
 
 class PantallaNuevoInmueble extends StatefulWidget {
   const PantallaNuevoInmueble({super.key});
@@ -10,18 +10,13 @@ class PantallaNuevoInmueble extends StatefulWidget {
 }
 
 class _PantallaNuevoInmuebleState extends State<PantallaNuevoInmueble> {
-  // Controladores para capturar el texto ingresado
+  
+  final _formKey = GlobalKey<FormState>();
+
+  
   final TextEditingController _controladorInmueble = TextEditingController();
   final TextEditingController _controladorFecha = TextEditingController();
   final TextEditingController _comentariosController = TextEditingController();
-
-  @override
-  void dispose() {
-    _controladorInmueble.dispose();
-    _controladorFecha.dispose();
-    _comentariosController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,10 +29,12 @@ class _PantallaNuevoInmuebleState extends State<PantallaNuevoInmueble> {
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
+        child: Form(
+          key: _formKey,
+          child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // Campo: Nombre o Título del Inmueble
+            
 
             const Text(
               'Selecciona un inmueble y define los detalles para comenzarla inspección.',
@@ -45,21 +42,26 @@ class _PantallaNuevoInmuebleState extends State<PantallaNuevoInmueble> {
               style: TextStyle(fontSize: 14),
             ),
             const Text('Código del Inmueble', style: TextStyle(fontSize: 14)),
-            TextField(
+            TextFormField(
               controller: _controladorInmueble,
               decoration: const InputDecoration(
                 labelText: 'Codigo del inmueble',
                 border: OutlineInputBorder(),
                 prefixIcon: Icon(Icons.home),
               ),
+              validator: (valor) {
+                if (valor == null || valor.isEmpty) {
+                  return 'Escribe el código del inmueble';
+                }
+                return null;
+              },
             ),
             const SizedBox(height: 16),
             const Text(
               'Fecha de la inspección',
               style: TextStyle(fontSize: 14),
             ),
-            // Campo: Fecha (Multilinea)
-            TextField(
+            TextFormField(
               controller: _controladorFecha,
               maxLines: 1,
               decoration: const InputDecoration(
@@ -67,10 +69,19 @@ class _PantallaNuevoInmuebleState extends State<PantallaNuevoInmueble> {
                 border: OutlineInputBorder(),
                 alignLabelWithHint: true,
               ),
+              validator: (valor) {
+                if (valor == null || valor.isEmpty) {
+                  return 'Escribe la fecha de la inspección';
+                }
+                final formatoValido = RegExp(r'^\d{2}/\d{2}/\d{4}$').hasMatch(valor);
+                if (!formatoValido) {
+                  return 'Usa el formato DD/MM/AAAA';
+                }
+                return null;
+              },
             ),
             const SizedBox(height: 16),
 
-            // Sección de Imágenes (Marcador de posición)
             const Text('Tipo de inventario', style: TextStyle(fontSize: 14)),
 
             Row(
@@ -78,6 +89,9 @@ class _PantallaNuevoInmuebleState extends State<PantallaNuevoInmueble> {
                 Expanded(
                   child: ElevatedButton.icon(
                     onPressed: () {
+                      if (!_formKey.currentState!.validate()) {
+                        return;
+                      }
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -103,6 +117,9 @@ class _PantallaNuevoInmuebleState extends State<PantallaNuevoInmueble> {
                 Expanded(
                   child: ElevatedButton.icon(
                     onPressed: () {
+                      if (!_formKey.currentState!.validate()) {
+                        return;
+                      }
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -154,6 +171,7 @@ class _PantallaNuevoInmuebleState extends State<PantallaNuevoInmueble> {
               ),
             ),
           ],
+          ),
         ),
       ),
     );

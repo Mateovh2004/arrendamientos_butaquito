@@ -1,5 +1,5 @@
 import 'package:arrendamientos_butaquito/layout/detalle_inmueble.dart';
-import 'package:arrendamientos_butaquito/layout/crear_-inventario.dart';
+import 'package:arrendamientos_butaquito/layout/crear_inventario.dart';
 import 'package:arrendamientos_butaquito/layout/nuevo_inmueble.dart';
 import 'package:flutter/material.dart';
 import 'package:arrendamientos_butaquito/layout/menu_inicio.dart';

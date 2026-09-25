@@ -2,30 +2,46 @@
 
 | | |
 |---|---|
-| Integrantes | Integrante 1, Integrante 2, Integrante 3 |
+| Integrantes | Juan José López Echeverri, Mateo Vasquez Hoyos, Juan David Martínez |
 | Curso y grupo | Programación Móvil (IF2004), grupo 601 |
 | Fecha | Por definir |
 | Versión | 1.0 |
 
 ## Tabla de contenido
 
-1. [Descripción general](#1-descripción-general)
-2. [Problema](#2-problema)
-3. [Objetivos](#3-objetivos)
-4. [Stakeholders, actores y roles](#4-stakeholders-actores-y-roles)
-5. [Alcance](#5-alcance)
-6. [Funcionalidades](#6-funcionalidades)
-7. [Requerimientos funcionales](#7-requerimientos-funcionales)
-8. [Requerimientos no funcionales](#8-requerimientos-no-funcionales)
-9. [Reglas de negocio](#9-reglas-de-negocio)
-10. [Modelo de datos](#10-modelo-de-datos)
-11. [Pantallas y mapa de navegación](#11-pantallas-y-mapa-de-navegación)
-12. [Mockup](#12-mockup)
-13. [Historias de usuario, casos de uso, restricciones y supuestos](#13-historias-de-usuario-casos-de-uso-restricciones-y-supuestos)
-14. [Arquitectura técnica y navegación implementada](#14-arquitectura-técnica-y-navegación-implementada)
-15. [Historial de cambios](#historial-de-cambios)
-16. [Referencias](#referencias)
-17. [Declaración de uso de inteligencia artificial](#declaración-de-uso-de-inteligencia-artificial)
+- [Arrendamientos Butaquito – Inventario Digital](#arrendamientos-butaquito--inventario-digital)
+  - [Tabla de contenido](#tabla-de-contenido)
+  - [1. Descripción general](#1-descripción-general)
+  - [2. Problema](#2-problema)
+  - [3. Objetivos](#3-objetivos)
+    - [3.1 Objetivo general](#31-objetivo-general)
+    - [3.2 Objetivos específicos](#32-objetivos-específicos)
+  - [4. Stakeholders, actores y roles](#4-stakeholders-actores-y-roles)
+  - [5. Alcance](#5-alcance)
+    - [5.1 Incluye](#51-incluye)
+    - [5.2 No incluye](#52-no-incluye)
+  - [6. Funcionalidades](#6-funcionalidades)
+  - [7. Requerimientos funcionales](#7-requerimientos-funcionales)
+  - [8. Requerimientos no funcionales](#8-requerimientos-no-funcionales)
+  - [9. Reglas de negocio](#9-reglas-de-negocio)
+  - [10. Modelo de datos](#10-modelo-de-datos)
+  - [11. Pantallas y mapa de navegación](#11-pantallas-y-mapa-de-navegación)
+  - [12. Mockup](#12-mockup)
+    - [P-01 Login](#p-01-login)
+    - [P-02 Lista de inmuebles](#p-02-lista-de-inmuebles)
+    - [P-04 Crear inventario](#p-04-crear-inventario)
+    - [Detalle de espacio (parte de P-04)](#detalle-de-espacio-parte-de-p-04)
+    - [Resumen antes de finalizar (parte de P-05)](#resumen-antes-de-finalizar-parte-de-p-05)
+    - [P-06 Enviar inventario](#p-06-enviar-inventario)
+  - [13. Historias de usuario, casos de uso, restricciones y supuestos](#13-historias-de-usuario-casos-de-uso-restricciones-y-supuestos)
+    - [Historias de usuario](#historias-de-usuario)
+    - [Casos de uso](#casos-de-uso)
+    - [Restricciones](#restricciones)
+    - [Supuestos](#supuestos)
+  - [14. Arquitectura técnica y navegación implementada](#14-arquitectura-técnica-y-navegación-implementada)
+  - [Historial de cambios](#historial-de-cambios)
+  - [Referencias](#referencias)
+  - [Declaración de uso de inteligencia artificial](#declaración-de-uso-de-inteligencia-artificial)
 
 ## 1. Descripción general
 
