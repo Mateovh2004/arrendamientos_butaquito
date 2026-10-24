@@ -4,102 +4,184 @@
 **Grupo:** 602<br>
 **Fecha:** 16 de octubre de 2026<br>
 
-**Mis widgets:** `LinearProgressIndicator`, `CalendarDatePicker`, `RefreshIndicator`
+**Mis widgets:** `AlertDialog`, `CalendarDatePicker`, `RefreshIndicator`
 
-## 1. `LinearProgressIndicator`
+## 1. `AlertDialog`
 
 ### Qué es y para qué sirve
 
-`LinearProgressIndicator` dibuja una barra horizontal que muestra cuánto falta para terminar algo. Tiene dos modos: **determinado**, cuando se sabe el avance exacto (por ejemplo, 60 %), y indeterminado, cuando solo se quiere indicar que algo está cargando y no se sabe cuánto falta; en ese caso la barra se anima de forma continua.
+`AlertDialog` es una ventana emergente de Material que aparece encima de la pantalla actual para informar algo importante o pedirle al usuario que tome una decisión. Normalmente tiene un título, un mensaje y uno o más botones de acción (por ejemplo, "Cancelar" y "Aceptar"). Mientras está abierta, el resto de la pantalla queda oscurecido y no se puede tocar.
 
-Resuelve un problema de comunicación con el usuario: que sepa que la app está trabajando o cuánto le falta para terminar una tarea larga, sin tener que escribir porcentajes a mano ni dibujar la barra con contenedores.
+Resuelve el problema de interrumpir al usuario justo cuando necesita confirmar o enterarse de algo, sin tener que construir otra pantalla completa ni dibujar a mano una ventana flotante con fondo oscuro.
 
 ### Cuándo usarlo y cuándo no
 
-Es la mejor opción para tareas con pasos medibles (llenar un formulario largo, completar una lista de revisión) y para esperas de duración desconocida, como subir información a un servidor. No conviene cuando la espera es tan corta que la barra apenas parpadea, ni cuando el avance que se muestra no es real: una barra que no refleja el progreso verdadero confunde más de lo que ayuda.
+Es la mejor opción para confirmar acciones que no se pueden deshacer (finalizar, eliminar, enviar), para avisar de errores que impiden continuar y para preguntas con pocas respuestas posibles (sí/no, aceptar/cancelar). No conviene para mensajes menores que no necesitan atención inmediata, como una confirmación de que algo se guardó: un aviso breve que desaparezca solo molesta menos. Tampoco para formularios largos o contenido extenso, y hay que evitar mostrar muchos diálogos seguidos porque cansan al usuario.
 
-La barra ocupa todo el ancho que le den. Dentro de una `Column` se estira sola, pero dentro de una `Row` hay que envolverla en un `Expanded`, o Flutter lanzará un error de tamaño.
+Un detalle importante: crear un `AlertDialog` no lo muestra. Hay que llamar a la función `showDialog(context: ..., builder: ...)`, que es la que lo abre encima de la pantalla. Para cerrarlo se usa `Navigator.pop(context)`, y si se le pasa un valor (`Navigator.pop(context, true)`), ese valor llega a quien llamó a `showDialog`, así se sabe qué botón tocó el usuario.
 
 ### Ejemplo mínimo
 
-```dart
-const LinearProgressIndicator(value: 0.6)
-```
-
-### Explicación del ejemplo
-
-El parámetro `value` va de 0.0 (vacía) a 1.0 (llena). Con `0.6` la barra se pinta llena hasta el 60 %. Si se omite `value` (o se pone `null`), la barra pasa al modo indeterminado y se anima sin parar. Para probarlo, se coloca dentro del `body` de un `Scaffold` con algo de `Padding`.
-
-### Propiedades importantes
-
-| Propiedad         | Qué hace                                                         | Ejemplo                                     |
-| ----------------- | ---------------------------------------------------------------- | ------------------------------------------- |
-| `value`           | Avance de 0.0 a 1.0. Si es `null`, la barra es indeterminada.    | `value: 0.6`                                |
-| `minHeight`       | Grosor de la barra.                                              | `minHeight: 10`                             |
-| `color`           | Color de la parte que avanza.                                    | `color: Colors.blue`                        |
-| `backgroundColor` | Color del fondo de la barra (la parte que falta).                | `backgroundColor: Colors.grey.shade300`     |
-| `borderRadius`    | Redondea las esquinas de la barra.                               | `borderRadius: BorderRadius.circular(8)`    |
-| `semanticsLabel`  | Texto que leen los lectores de pantalla para describir la barra. | `semanticsLabel: 'Progreso del inventario'` |
-
-### Ejemplo personalizado
-
-Este ejemplo calcula el progreso a partir de cuántos espacios del inmueble están completos y actualiza la barra cada vez que se completa uno:
+Código completo para pegar en DartPad:
 
 ```dart
-class ProgresoInventario extends StatefulWidget {
-  const ProgresoInventario({super.key});
+import 'package:flutter/material.dart';
 
-  @override
-  State<ProgresoInventario> createState() => _ProgresoInventarioState();
-}
+void main() => runApp(const MaterialApp(home: Pantalla()));
 
-class _ProgresoInventarioState extends State<ProgresoInventario> {
-  final int _totalEspacios = 3;
-  int _espaciosCompletos = 0;
+class Pantalla extends StatelessWidget {
+  const Pantalla({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final progreso = _espaciosCompletos / _totalEspacios;
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Text('$_espaciosCompletos de $_totalEspacios espacios completos'),
-        const SizedBox(height: 8),
-        LinearProgressIndicator(
-          value: progreso,
-          minHeight: 10,
-          borderRadius: BorderRadius.circular(8),
-          color: const Color.fromARGB(255, 2, 0, 95),
-          backgroundColor: Colors.grey.shade300,
-          semanticsLabel: 'Progreso del inventario',
+    return Scaffold(
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                title: const Text('Inventario guardado'),
+                content: const Text('El inventario se guardó correctamente.'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: const Text('Aceptar'),
+                  ),
+                ],
+              ),
+            );
+          },
+          child: const Text('Mostrar aviso'),
         ),
-        const SizedBox(height: 12),
-        ElevatedButton(
-          onPressed: _espaciosCompletos < _totalEspacios
-              ? () => setState(() => _espaciosCompletos++)
-              : null,
-          child: const Text('Completar un espacio'),
-        ),
-      ],
+      ),
     );
   }
 }
 ```
 
-La barra usa el azul oscuro de la marca. El progreso es simplemente `espaciosCompletos / totalEspacios`, así que al llegar a 3 de 3 la barra queda llena y el botón se deshabilita. En una pantalla real, `_espaciosCompletos` saldría de revisar qué espacios ya tienen estado, fotos y novedades.
+### Explicación del ejemplo
+
+Al tocar el botón se llama a `showDialog`, que recibe el `context` y una función `builder` que devuelve el `AlertDialog` que se quiere mostrar. El `title` es el encabezado, `content` es el mensaje y `actions` es la lista de botones que van abajo a la derecha. El botón "Aceptar" llama a `Navigator.pop(context)`, que cierra el diálogo. Si el usuario toca fuera de la ventana, también se cierra, porque por defecto `showDialog` lo permite.
+
+### Propiedades importantes
+
+| Propiedad | Qué hace | Ejemplo |
+|---|---|---|
+| `title` | Widget con el título del diálogo. | `title: Text('¿Finalizar?')` |
+| `content` | Widget con el mensaje o contenido principal. | `content: Text('No se podrá editar')` |
+| `actions` | Lista de botones que aparecen abajo. | `actions: [TextButton(...)]` |
+| `icon` | Ícono que se muestra arriba del título. | `icon: Icon(Icons.warning)` |
+| `backgroundColor` | Color de fondo de la ventana. | `backgroundColor: Colors.white` |
+| `actionsAlignment` | Alineación de los botones de `actions`. | `actionsAlignment: MainAxisAlignment.spaceBetween` |
+| `scrollable` | Si el contenido puede desplazarse cuando es largo. | `scrollable: true` |
+
+Además, `showDialog` tiene su propio parámetro `barrierDismissible`: si es `false`, el diálogo no se cierra al tocar fuera y el usuario está obligado a elegir un botón.
+
+### Ejemplo personalizado
+
+Este ejemplo pregunta si el inventarista quiere finalizar el inventario. El diálogo devuelve `true` o `false` según el botón tocado, y la pantalla muestra el resultado. Código completo para DartPad:
+
+```dart
+import 'package:flutter/material.dart';
+
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(home: PantallaPrueba());
+  }
+}
+
+class PantallaPrueba extends StatefulWidget {
+  const PantallaPrueba({super.key});
+
+  @override
+  State<PantallaPrueba> createState() => _PantallaPruebaState();
+}
+
+class _PantallaPruebaState extends State<PantallaPrueba> {
+  String _estado = 'Inventario en borrador';
+
+  Future<void> _confirmarFinalizacion() async {
+    final confirmado = await showDialog<bool>(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => AlertDialog(
+        icon: const Icon(Icons.warning_amber_rounded),
+        title: const Text('¿Finalizar inventario?'),
+        content: const Text(
+          'Una vez finalizado, no se podrá editar su contenido.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: const Text('Cancelar'),
+          ),
+          FilledButton(
+            style: FilledButton.styleFrom(
+              backgroundColor: const Color.fromARGB(255, 2, 0, 95),
+            ),
+            onPressed: () => Navigator.pop(context, true),
+            child: const Text('Finalizar'),
+          ),
+        ],
+      ),
+    );
+
+    if (!mounted) return;
+    setState(() {
+      _estado = confirmado == true
+          ? 'Inventario finalizado'
+          : 'Finalización cancelada';
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Prueba AlertDialog'),
+        backgroundColor: const Color.fromARGB(255, 2, 0, 95),
+        foregroundColor: Colors.white,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              _estado,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: _confirmarFinalizacion,
+              child: const Text('Finalizar inventario'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+
+La función `_confirmarFinalizacion` es `async` porque espera con `await` a que el usuario toque un botón. Lo que se pasa en `Navigator.pop(context, true)` o `Navigator.pop(context, false)` es lo que queda guardado en `confirmado`. Con `barrierDismissible: false` el usuario no puede cerrar el diálogo tocando fuera: tiene que elegir "Cancelar" o "Finalizar". El `icon` agrega una advertencia visual arriba del título y el botón principal usa el azul oscuro de la marca. La línea `if (!mounted) return;` evita usar `setState` si la pantalla ya se cerró mientras el diálogo estaba abierto.
 
 ### Dónde lo usaría en Arrendamientos Butaquito
 
-En la pantalla Crear inventario, en la parte de arriba, para mostrar cuántos espacios (Paredes, Cocina, Sala, etc.) ya fueron diligenciados. Ayuda al inventarista a ver qué le falta.
+En la pantalla Crear inventario, al finalizar el inventario: un diálogo que pregunte "¿Finalizar inventario?" y avise que ya no se podrá editar. También ahí mismo, si el inventario está incompleto, un diálogo de aviso que explique qué información falta en lugar de dejar que el usuario no entienda por qué no puede finalizar.
 
-También en la pantalla Enviar inventario, en modo indeterminado, mientras se envía el correo con la API de Gmail. Hoy la app muestra el mensaje de confirmación de inmediato; con la barra el usuario vería que el envío está en proceso y no lo daría por terminado antes de tiempo.
+También en la pantalla Enviar inventario, antes de enviar el correo, para confirmar el destinatario (por ejemplo, "¿Enviar el inventario al propietario en correo@ejemplo.com?"), ya que un envío por correo no se puede deshacer.
 
 ### Fuentes y ayudas usadas
 
-- Documentación oficial: https://api.flutter.dev/flutter/material/LinearProgressIndicator-class.html
+- Documentación oficial: https://api.flutter.dev/flutter/material/AlertDialog-class.html
 - Utilicé IA para la redacción del Markdown y aclaración de conceptos usando Claude Sonnet 5.5.
-- El ejemplo se probó en DartPad apoyado de Gemini AI para corrección de errores.
+- El ejemplo se probó en DartPad.
 
 ## 2. `CalendarDatePicker`
 
@@ -134,15 +216,15 @@ El calendario arranca mostrando el día de hoy (`initialDate`) y permite navegar
 
 ### Propiedades importantes
 
-| Propiedad                | Qué hace                                                                              | Ejemplo                                                       |
-| ------------------------ | ------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| `initialDate`            | Fecha seleccionada al abrir el calendario (obligatoria).                              | `initialDate: DateTime.now()`                                 |
-| `firstDate`              | Primera fecha que se puede elegir (obligatoria).                                      | `firstDate: DateTime(2020)`                                   |
-| `lastDate`               | Última fecha que se puede elegir (obligatoria).                                       | `lastDate: DateTime(2030)`                                    |
-| `onDateChanged`          | Se llama al tocar un día y entrega la fecha elegida (obligatoria).                    | `onDateChanged: (f) {...}`                                    |
+| Propiedad | Qué hace | Ejemplo |
+|---|---|---|
+| `initialDate` | Fecha seleccionada al abrir el calendario (obligatoria). | `initialDate: DateTime.now()` |
+| `firstDate` | Primera fecha que se puede elegir (obligatoria). | `firstDate: DateTime(2020)` |
+| `lastDate` | Última fecha que se puede elegir (obligatoria). | `lastDate: DateTime(2030)` |
+| `onDateChanged` | Se llama al tocar un día y entrega la fecha elegida (obligatoria). | `onDateChanged: (f) {...}` |
 | `selectableDayPredicate` | Función que decide si un día se puede seleccionar; los demás aparecen deshabilitados. | `selectableDayPredicate: (d) => d.weekday != DateTime.sunday` |
-| `currentDate`            | Fecha que se marca como "hoy"; por defecto es la fecha real.                          | `currentDate: DateTime.now()`                                 |
-| `initialCalendarMode`    | Si abre mostrando días o la lista de años.                                            | `initialCalendarMode: DatePickerMode.year`                    |
+| `currentDate` | Fecha que se marca como "hoy"; por defecto es la fecha real. | `currentDate: DateTime.now()` |
+| `initialCalendarMode` | Si abre mostrando días o la lista de años. | `initialCalendarMode: DatePickerMode.year` |
 
 ### Ejemplo personalizado
 
@@ -253,15 +335,15 @@ RefreshIndicator(
 
 ### Propiedades importantes
 
-| Propiedad         | Qué hace                                                                 | Ejemplo                                             |
-| ----------------- | ------------------------------------------------------------------------ | --------------------------------------------------- |
-| `onRefresh`       | Función asíncrona que recarga los datos (obligatoria).                   | `onRefresh: _recargar`                              |
-| `child`           | La lista desplazable que se envuelve (obligatoria).                      | `child: ListView(...)`                              |
-| `color`           | Color del círculo que gira.                                              | `color: Colors.white`                               |
-| `backgroundColor` | Color del fondo del círculo.                                             | `backgroundColor: Colors.blue`                      |
-| `displacement`    | Distancia que baja el círculo desde el borde superior.                   | `displacement: 60`                                  |
-| `strokeWidth`     | Grosor de la línea del círculo.                                          | `strokeWidth: 3`                                    |
-| `triggerMode`     | Si el gesto se activa solo en el borde de la lista o en cualquier punto. | `triggerMode: RefreshIndicatorTriggerMode.anywhere` |
+| Propiedad | Qué hace | Ejemplo |
+|---|---|---|
+| `onRefresh` | Función asíncrona que recarga los datos (obligatoria). | `onRefresh: _recargar` |
+| `child` | La lista desplazable que se envuelve (obligatoria). | `child: ListView(...)` |
+| `color` | Color del círculo que gira. | `color: Colors.white` |
+| `backgroundColor` | Color del fondo del círculo. | `backgroundColor: Colors.blue` |
+| `displacement` | Distancia que baja el círculo desde el borde superior. | `displacement: 60` |
+| `strokeWidth` | Grosor de la línea del círculo. | `strokeWidth: 3` |
+| `triggerMode` | Si el gesto se activa solo en el borde de la lista o en cualquier punto. | `triggerMode: RefreshIndicatorTriggerMode.anywhere` |
 
 ### Ejemplo personalizado
 
@@ -307,6 +389,7 @@ class _ListaConRefrescoState extends State<ListaConRefresco> {
 ```
 
 El círculo de carga queda blanco sobre el azul oscuro de la marca. Después de la espera, `setState` agrega un código nuevo y la lista se redibuja. La línea `if (!mounted) return;` evita usar `setState` si el usuario salió de la pantalla mientras cargaba. Se prueba poniendo el widget como `body` de un `Scaffold`.
+
 Este ejemplo personalizado de código no se pudo probar en DartPad ni en el código de este repositorio. Por lo que estuve investigando, es necesario utilizar un emulador de android para poder realizar el gesto de arrastrar hacia abajo y que aparezca el círculo de carga.
 
 ### Dónde lo usaría en Arrendamientos Butaquito
