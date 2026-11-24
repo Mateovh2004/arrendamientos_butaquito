@@ -1,38 +1,52 @@
-import 'package:arrendamientos_butaquito/layout/detalle_inmueble.dart';
-import 'package:arrendamientos_butaquito/layout/crear_inventario.dart';
-import 'package:arrendamientos_butaquito/layout/nuevo_inmueble.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:arrendamientos_butaquito/layout/menu_inicio.dart';
-import 'package:arrendamientos_butaquito/layout/lista_inventarios.dart';
+import 'repositories/cuenta_repository.dart';
+import 'data/services/auth_service.dart';
+import 'domain/models/usuario.dart';
+import 'firebase_options.dart';
+import 'ui/cuenta/view_models/cuenta_view_model.dart';
+import 'ui/cuenta/widgets/cuenta_pantalla.dart';
+import 'ui/inventarios/widgets/lista_inventarios.dart'; 
 
-void main() {
-  runApp(MainApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  final cuenta = CuentaViewModel(CuentaRepository(AuthService()));
+  runApp(MainApp(cuenta: cuenta));
 }
 
 class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+  const MainApp({super.key, required this.cuenta});
+  final CuentaViewModel cuenta;
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: PantallaPrincipal(),
-    );
-  }
-}
-
-class PantallaPrincipal extends StatelessWidget {
-  const PantallaPrincipal({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final TextEditingController controladorCorreo = TextEditingController();
-    final TextEditingController controladorContrasena = TextEditingController();
-
-    return Scaffold(
-      body: widgetMenuInicio(
-        controladorCorreo: controladorCorreo,
-        controladorContrasena: controladorContrasena,
+      home: StreamBuilder<Usuario?>(
+        stream: cuenta.sesion,
+        builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            return Scaffold(
+              body: Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(snapshot.error.toString(), textAlign: TextAlign.center),
+                    FilledButton(onPressed: cuenta.cerrarSesion, child: const Text('Volver al inicio')),
+                  ],
+                ),
+              ),
+            );
+          }
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Scaffold(body: Center(child: CircularProgressIndicator()));
+          }
+          final usuario = snapshot.data;
+          if (usuario == null) return CuentaPantalla(viewModel: cuenta);
+          return ListaInventarios(usuario: usuario, onCerrarSesion: cuenta.cerrarSesion);
+        },
       ),
     );
   }

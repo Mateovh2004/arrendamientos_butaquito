@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
-import 'nuevo_inmueble.dart';
-import 'detalle_inmueble.dart';
+import '../../../domain/models/usuario.dart';
+import '../../inmuebles/widgets/nuevo_inmueble.dart';
+import '../../inmuebles/widgets/detalle_inmueble.dart';
 
 class ListaInventarios extends StatefulWidget {
-  const ListaInventarios({super.key});
+  final Usuario usuario;
+  final Future<void> Function() onCerrarSesion;
+
+  const ListaInventarios({
+    super.key,
+    required this.usuario,
+    required this.onCerrarSesion,
+  });
 
   @override
   State<ListaInventarios> createState() => _ListaInventariosState();
@@ -12,7 +20,6 @@ class ListaInventarios extends StatefulWidget {
 class _ListaInventariosState extends State<ListaInventarios> {
   final TextEditingController controladorCodigo = TextEditingController();
 
-
   final List<String> codigosInmuebles = ['79940', '79941'];
   final List<String> imagenesInmuebles = [
     'assets/img/placeholders/casa1.jpg',
@@ -20,16 +27,28 @@ class _ListaInventariosState extends State<ListaInventarios> {
   ];
 
   @override
+  void dispose() {
+    controladorCodigo.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Arrendamientos Butaquito'),
+        title: Text('${widget.usuario.correo} (${widget.usuario.rol.name})'),
         backgroundColor: const Color.fromARGB(255, 2, 0, 95),
         foregroundColor: Colors.white,
+        actions: [
+          IconButton(
+            tooltip: 'Cerrar sesión',
+            icon: const Icon(Icons.logout),
+            onPressed: widget.onCerrarSesion,
+          ),
+        ],
       ),
       body: Column(
         children: [
-        
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
@@ -55,8 +74,6 @@ class _ListaInventariosState extends State<ListaInventarios> {
               ],
             ),
           ),
-
-      
           Expanded(
             child: ListView.builder(
               padding: const EdgeInsets.symmetric(horizontal: 16),
