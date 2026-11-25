@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:arrendamientos_butaquito/layout/enviar_inventario.dart';
+import 'package:arrendamientos_butaquito/ui/inventarios/widgets/enviar_inventario.dart';
 
 class DetalleInmueble extends StatelessWidget {
   final String codigo;

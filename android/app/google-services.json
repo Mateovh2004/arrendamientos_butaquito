@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1000083898176",
+    "project_id": "arrendamientos-butaquito",
+    "storage_bucket": "arrendamientos-butaquito.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1000083898176:android:4d56a246f22fefd8d3c4a5",
+        "android_client_info": {
+          "package_name": "com.arrendamientos_butaquito.arrendamientos_butaquito"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFNbmbCGMusd4XQBDFRpi_Hsu6hMfnPTQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

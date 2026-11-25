@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'crear_inventario.dart';
+import '../../inventarios/widgets/crear_inventario.dart';
 
 class PantallaNuevoInmueble extends StatefulWidget {
   const PantallaNuevoInmueble({super.key});

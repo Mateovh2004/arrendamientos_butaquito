@@ -190,27 +190,27 @@ El flujo de lista a detalle está en P-02 → P-05: al tocar un inmueble de la l
 
 ### P-01 Login
 
-![Login](assets/stitch_butaquito_inventario_digital/mockups/inicio_de_sesi_n_butaquito_refined/screen.png)
+![Login](assets/img/mockups/inicio_de_sesi_n_butaquito_refined/screen.png)
 
 ### P-02 Lista de inmuebles
 
-![Lista de inmuebles](assets/stitch_butaquito_inventario_digital/mockups/mis_inmuebles_butaquito_es/screen.png)
+![Lista de inmuebles](assets/img/mockups/mis_inmuebles_butaquito_es/screen.png)
 
 ### P-04 Crear inventario
 
-![Crear inventario](assets/stitch_butaquito_inventario_digital/mockups/crear_inventario_butaquito_es/screen.png)
+![Crear inventario](assets/img/mockups/crear_inventario_butaquito_es/screen.png)
 
 ### Detalle de espacio (parte de P-04)
 
-![Detalle de espacio](assets/stitch_butaquito_inventario_digital/mockups/detalle_de_espacio_butaquito_es/screen.png)
+![Detalle de espacio](assets/img/mockups/detalle_de_espacio_butaquito_es/screen.png)
 
 ### Resumen antes de finalizar (parte de P-05)
 
-![Resumen de inventario](assets/stitch_butaquito_inventario_digital/mockups/resumen_de_inventario_butaquito_restaurada/screen.png)
+![Resumen de inventario](assets/img/mockups/resumen_de_inventario_butaquito_restaurada/screen.png)
 
 ### P-06 Enviar inventario
 
-![Enviar inventario](assets/stitch_butaquito_inventario_digital/mockups/enviar_inventario_butaquito/screen.png)
+![Enviar inventario](assets/img/mockups/enviar_inventario_butaquito/screen.png)
 
 ## 13. Historias de usuario, casos de uso, restricciones y supuestos
 
